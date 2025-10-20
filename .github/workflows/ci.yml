@@ -21,8 +21,8 @@ jobs:
           PYTHONPATH: .
         run: pytest -q
 
-      - name: SAST with Bandit (fail on medium/high)
+      - name: SAST with Bandit (non-blocking)
         run: bandit -r app -lll || true
 
-      - name: SCA with Safety (fail on vulnerabilities)
+      - name: SCA with Safety (non-blocking)
         run: safety check --full-report --exit-code 0
